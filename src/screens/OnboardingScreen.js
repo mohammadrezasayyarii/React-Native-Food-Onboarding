@@ -12,9 +12,9 @@ const OnboardingScreen = () => {
   return (
     <View style={styles.container}>
       <View>
-        <TouchableOpacity style={styles.skipStyle}>
-          <Text>Skip</Text>
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.skipStyle}>
+            <Text>Skip</Text>
+          </TouchableOpacity>
       </View>
 
       <View>

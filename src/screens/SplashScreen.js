@@ -12,11 +12,11 @@ import * as Animatable from 'react-native-animatable';
 const SplashScreen = () => {
   const navigation = useNavigation()
 
-  useEffect(() => {
-    setTimeout(() => {
-      navigation.navigate("Onboarding")
-    }, 2000)
-  },[])
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     navigation.navigate("Onboarding")
+  //   }, 2000)
+  // },[])
 
   return (
     <SafeAreaView style={style.container}>
@@ -44,6 +44,7 @@ const style = StyleSheet.create ({
         marginTop: 40
     },
     imgSrc : {
+        marginTop: 200,
         width: 150,
         // height: 40
     }

@@ -1,14 +1,25 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { useFonts } from 'expo-font';
 
 const OnboardingSlider = (item) => {
+  const [fontsLoaded] = useFonts({
+    'Poppins-Bold': require('../../assets/fonts/Poppins-Bold.ttf'),
+    'Poppins-Medium': require('../../assets/fonts/Poppins-Medium.ttf'),
+    'Poppins-Regular': require('../../assets/fonts/Poppins-Regular.ttf'),
+    'Poppins-SemiBold': require('../../assets/fonts/Poppins-SemiBold.ttf'),
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <View style={styles.container}>
         <Image resizeMode="contain" source={item.image} style={{ width: 350, height: 270 }} />
-        <View style={styles.content}>
-          <Text>{item.title}</Text>
-          <Text>{item.content}</Text>
+        <View style={{ marginTop: 60,  alignItems: 'center', textAlign: 'center', width: 340, }}>
+          <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.content}>{item.content}</Text>
         </View>
     </View>
   )
@@ -22,8 +33,16 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
+  title: {
+    fontSize: 20,
+    fontFamily: 'Poppins-SemiBold'
+  },
   content: {
-    marginTop: 60,
-
+    // width: 20,
+    // height: 23,
+    flexWrap: 'wrap',
+    fontSize: 14,
+    textAlign: "center",
+    fontFamily: "Poppins-Regular"
   }
 })
