@@ -1,10 +1,10 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 
-const SliderDot = ({ position }) => {
+const SliderDot = ({ position,  }) => {
 
   return (
-    <View style={[styles.dot, {backgroundColor: position ? "#000000" : "#ffffff"}]}>
+    <View style={[styles.dot, {backgroundColor: position ? "#000000" : "#DADADA"}]}>
 
     </View>
   )
@@ -12,12 +12,13 @@ const SliderDot = ({ position }) => {
 
 
 const styles = StyleSheet.create({
-    dot: {
-        width: 20,
-        height: 4,
-        borderRadius: 7,
-        marginHorizontal: 3,
-    }
+  dot: {
+    // {width: position ? 25 : 12}
+    width: 30,
+    height: 4,
+    borderRadius: 7,
+    marginHorizontal: 3,
+  }
 })
 
 export default SliderDot

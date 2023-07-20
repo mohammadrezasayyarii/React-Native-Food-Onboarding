@@ -3,6 +3,8 @@ import React from 'react'
 import { useFonts } from 'expo-font';
 
 const OnboardingSlider = (item) => {
+
+
   const [fontsLoaded] = useFonts({
     'Poppins-Bold': require('../../assets/fonts/Poppins-Bold.ttf'),
     'Poppins-Medium': require('../../assets/fonts/Poppins-Medium.ttf'),
@@ -13,6 +15,7 @@ const OnboardingSlider = (item) => {
   if (!fontsLoaded) {
     return null;
   }
+
 
   return (
     <View style={styles.container}>

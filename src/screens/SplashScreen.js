@@ -7,8 +7,6 @@ import * as Animatable from 'react-native-animatable';
 
 
 
-
-
 const SplashScreen = () => {
   const navigation = useNavigation()
 
