@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import PagerView from 'react-native-pager-view'
 import { data } from '../utils/data';
@@ -9,6 +9,7 @@ import SliderDot from '../components/SliderDot';
 
 
 const OnboardingScreen = () => {
+  const [currentSliderNumber, setCurrentSliderNumber] = useState(0)
 
   return (
     <View style={styles.container}>
@@ -19,7 +20,11 @@ const OnboardingScreen = () => {
       </View>
 
       <View>
-          <PagerView style={[styles.viewPager]}  initialPage={0}>
+          <PagerView onPageScroll={
+              ({ nativeEvent }) => {
+                nativeEvent.position !== currentSliderNumber ? setCurrentSliderNumber(nativeEvent.position) : null
+                // if (nativeEvent.position !== currentSliderNumber) setCurrentSliderNumber(nativeEvent.position)
+              }} style={[styles.viewPager]}  initialPage={0}>
             {data.map(( item, index) => (
               <OnboardingSlider key={index} {...item} /> 
             ))}
@@ -27,7 +32,7 @@ const OnboardingScreen = () => {
 
           <View style={styles.dotSlider}>
             {data.map((_, index) => (
-              <SliderDot key={index} />
+              <SliderDot key={index} position={ index === currentSliderNumber} />
             ))}
           </View>
       </View>

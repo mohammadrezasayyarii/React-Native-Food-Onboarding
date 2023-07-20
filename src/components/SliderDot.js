@@ -1,10 +1,10 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 
-const SliderDot = () => {
+const SliderDot = ({ position }) => {
 
   return (
-    <View style={styles.dot}>
+    <View style={[styles.dot, {backgroundColor: position ? "#000000" : "#ffffff"}]}>
 
     </View>
   )
@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
         height: 4,
         borderRadius: 7,
         marginHorizontal: 3,
-        backgroundColor: "#000000"
     }
 })
 
