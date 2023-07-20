@@ -4,6 +4,7 @@ import PagerView from 'react-native-pager-view'
 import { data } from '../utils/data';
 import OnboardingSlider from '../components/OnboardingSlider';
 import { TouchableOpacity } from 'react-native';
+import SliderDot from '../components/SliderDot';
 
 
 
@@ -23,6 +24,12 @@ const OnboardingScreen = () => {
               <OnboardingSlider key={index} {...item} /> 
             ))}
           </PagerView>
+
+          <View style={styles.dotSlider}>
+            {data.map((_, index) => (
+              <SliderDot key={index} />
+            ))}
+          </View>
       </View>
 
       
@@ -48,6 +55,11 @@ const styles = StyleSheet.create({
   viewPager: {
     height: "75%",
     top: -50,
+  },
+  dotSlider: {
+    top: -45,
+    flexDirection: "row", 
+    justifyContent: "center"
   }
 });
 

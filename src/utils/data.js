@@ -7,7 +7,7 @@ export const data = [
     {
         image: require("../../assets/images/Group.png"),
         title: "Order your favourite meals",
-        content: "When you order, we’ii  hook you up with exclusive package, and special rewards"
+        content: "When you order, we’ll  hook you up with exclusive package, and special rewards"
     },
     {
         image: require("../../assets/images/Delivery.png"),

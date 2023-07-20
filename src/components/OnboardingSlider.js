@@ -17,7 +17,7 @@ const OnboardingSlider = (item) => {
   return (
     <View style={styles.container}>
         <Image resizeMode="contain" source={item.image} style={{ width: 350, height: 270 }} />
-        <View style={{ marginTop: 20, }}>
+        <View style={{ marginTop: 20, color: "white" }}>
           <Text style={styles.title}>{item.title}</Text>
           <Text style={styles.content}>{item.content}</Text>
         </View>
@@ -35,12 +35,17 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
+    color: "#4A4A4A",
+    alignItems: "center",
     fontFamily: 'Poppins-SemiBold',
     textAlign: "center",
   },
   content: {
-    maxWidth: 250,
+    maxWidth: 280,
+    color: "#4A4A4A",
     fontSize: 14,
+    alignItems: "center",
+    flexWrap: 'wrap',
     textAlign: "center",
     fontFamily: "Poppins-Regular"
   }
