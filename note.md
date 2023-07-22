@@ -65,37 +65,71 @@ export default function App() {
 
 
 
+4. Adding font To expo Project
+
+- Installation
+npm i @expo-google-fonts/poppins
+
+
+npx expo install @expo-google-fonts/poppins expo-font 
 
 
 
-// tailwind.config.js
+import {
+  useFonts,
+  Poppins_100Thin,
+  Poppins_400Regular,
+  Poppins_500Medium,
+  Poppins_600SemiBold,
+  Poppins_700Bold,
+} from '@expo-google-fonts/poppins';
 
-module.exports = {
-  content: ["./App.{js,jsx,ts,tsx}", "./src/**/*.{js,jsx,ts,tsx}"],
-    theme: {
-      extend: {
-        colors: {
-          dark: "#4A4A4A",
-          black: "#000000",
-          light_gray: "#DADADA",
-          gray_pale: "#2CBC35",
-          gray_pale2: "#4A4A4A",
-          primary: "#09B44D",
-          primary_light: "#41C049",
-          primary_pale: "#2CBC35",
-          secondary: "#fff"
-        },
-        fontFamily: {
-          poppinsBold: ['poppinsBold'],
-          poppinsMedium: ['poppinsMedium'],
-          poppinsRegular: ['poppinsRegular'],
-          poppinsSemibold: ['poppinsSemibold'],
-        },
-        // backgroundImage: (theme) => ({
-        //   'splash-bg': "url('./assets/images/slpash-bg.png')",
-        //   'splash-logo': "url('../../assets/images/logo.png')",
-        // }),
-      },
-    },
-    plugins: [],
-  } 
+
+
+
+const OnboardingScreen = () => {
+  const [currentSliderNumber, setCurrentSliderNumber] = useState(0)
+  const navigation = useNavigation()
+  const carouselRef = useRef(null)
+
+
+  let [fontsLoaded] = useFonts({
+    Poppins_100Thin,
+    Poppins_400Regular,
+    Poppins_500Medium,
+    Poppins_600SemiBold,
+    Poppins_700Bold,
+  });
+
+  if (!fontsLoaded) {
+    return <Text>...Loading</Text>;
+  }
+
+}
+
+
+
+
+
+4.1 Method two expo font
+
+import { useFonts } from 'expo-font';
+
+export default function App() {
+  const [fontsLoaded] = useFonts({
+    'Inter-Black': require('./assets/fonts/Inter-Black.otf'),
+  });
+
+
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
+
+   if (!fontsLoaded) {
+    return <Text>....Laoding</Text>;
+  }
+}
+
+

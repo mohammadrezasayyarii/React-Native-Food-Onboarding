@@ -7,9 +7,6 @@ import { TouchableOpacity } from 'react-native';
 import SliderDot from '../components/SliderDot';
 import CustomButton from '../components/CustomButton';
 import { useNavigation } from '@react-navigation/native';
-import * as SplashScreen from 'expo-splash-screen';
-
-
 import {
   useFonts,
   Poppins_100Thin,
