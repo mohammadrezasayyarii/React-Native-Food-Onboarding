@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "#4A4A4A",
     alignItems: "center",
-    fontFamily: 'Poppins-SemiBold',
+    fontFamily: 'Poppins-Bold',
     textAlign: "center",
   },
   content: {

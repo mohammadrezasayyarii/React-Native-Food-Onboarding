@@ -6,8 +6,18 @@ import OnboardingSlider from '../components/OnboardingSlider';
 import { TouchableOpacity } from 'react-native';
 import SliderDot from '../components/SliderDot';
 import CustomButton from '../components/CustomButton';
-import { useFonts } from 'expo-font';
 import { useNavigation } from '@react-navigation/native';
+import * as SplashScreen from 'expo-splash-screen';
+
+
+import {
+  useFonts,
+  Poppins_100Thin,
+  Poppins_400Regular,
+  Poppins_500Medium,
+  Poppins_600SemiBold,
+  Poppins_700Bold,
+} from '@expo-google-fonts/poppins';
 
 
 
@@ -15,23 +25,25 @@ const OnboardingScreen = () => {
   const [currentSliderNumber, setCurrentSliderNumber] = useState(0)
   const navigation = useNavigation()
   const carouselRef = useRef(null)
-  const [fontsLoaded] = useFonts({
-    'Poppins-Bold': require('../../assets/fonts/Poppins-Bold.ttf'),
-    'Poppins-Medium': require('../../assets/fonts/Poppins-Medium.ttf'),
-    'Poppins-Regular': require('../../assets/fonts/Poppins-Regular.ttf'),
-    'Poppins-SemiBold': require('../../assets/fonts/Poppins-SemiBold.ttf'),
+
+
+  let [fontsLoaded] = useFonts({
+    Poppins_100Thin,
+    Poppins_400Regular,
+    Poppins_500Medium,
+    Poppins_600SemiBold,
+    Poppins_700Bold,
   });
 
   if (!fontsLoaded) {
-    return null;
+    return <Text>...Loading</Text>;
   }
 
-  // console.log(currentSliderNumber)
-
-  const {width, Height} = Dimensions.get('window');
 
 
- 
+
+
+  const { width, Height } = Dimensions.get('window');
 
   const nextSlide = () => {
     const nextSlide = currentSliderNumber + 1
@@ -39,11 +51,9 @@ const OnboardingScreen = () => {
   }
 
 
- 
-
   return (
     <View style={styles.container}>
-      { currentSliderNumber === 2 ? <View style={{marginTop : 150}}></View> : <View style={{marginBottom: 100, flexDirection: "row"}}>
+      {currentSliderNumber === 2 ? <View style={{marginTop : 150}}></View> : <View style={{marginBottom: 100, flexDirection: "row"}}>
           <TouchableOpacity style={{ flex: 1 }} onPress={() => navigation.navigate("SignUp")}>
             <Text style={styles.skipStyle}>Skip</Text>
           </TouchableOpacity>
@@ -51,7 +61,7 @@ const OnboardingScreen = () => {
           <TouchableOpacity onPress={nextSlide}>
             <Text style={styles.skipStyle}>Next</Text>
           </TouchableOpacity>
-      </View> }
+      </View>}
       
 
       <View>
@@ -92,7 +102,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   skipStyle: {
-    fontFamily: "Poppins-Medium",
+    fontFamily: "Poppins_700Bold",
     fontSize: 15,
     color: "#000000",
   },
