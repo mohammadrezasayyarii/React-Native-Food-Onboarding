@@ -1,87 +1,97 @@
-import { View, Text, SafeAreaView, StyleSheet, Image, Dimensions } from 'react-native'
 import React from 'react'
-import logo from '../../assets/images/logo.png'
-import { TextInput } from 'react-native'
+import { View, Text, TouchableOpacity, Dimensions, Image, StyleSheet, TextInput } from 'react-native'
 import CustomButton from '../components/CustomButton'
-import {
-  useFonts,
-  Poppins_100Thin,
-  Poppins_400Regular,
-  Poppins_500Medium,
-  Poppins_600SemiBold,
-  Poppins_700Bold,
-} from '@expo-google-fonts/poppins'
+import logo from '../../assets/images/logo.png'
 
-const { width, height } = Dimensions.get('screen')
 
-const ForgetPassword = () => {
-  let [fontsLoaded] = useFonts({
-    Poppins_100Thin,
-    Poppins_400Regular,
-    Poppins_500Medium,
-    Poppins_600SemiBold,
-    Poppins_700Bold,
-  });
+const { height, width } = Dimensions.get('screen')
 
-  if (!fontsLoaded) {
-    return null;
-  }
+const ForgetPassword = ({ navigation }) => {
+    return (
+        <View style={styles.container} >
+            <View>
+                <Image resizeMode="contain" style={styles.imgStyle} source={logo} />
+                <Text style={[styles.largeText, { marginTop: 20 }]} > {'Forget \n passwordffff ?'} </Text>
+            </View>
+            <View style={styles.alignCenter} >
+                <View >
+                    <Text style={{ textAlign: 'center', marginBottom: 50 }} > {'Enter your email address to request a \n password reset.'} </Text>
 
-  return (
-    <View style={styles.container}>
-        <View>
-          <Image source={logo} style={styles.imgSrc} />
-          <Text style={styles.passwordText}>{`Forget \npassword ?`}</Text>
+                    <View style={{ marginVertical: 10 }} >
+                        <Text style={styles.textInputLabel} > Email Address </Text>
+                        <TextInput style={styles.textInput} placeholder="Enter email" />
+                    </View>
+                </View>
+            </View>
+
+            <View style={styles.alignCenter} >
+                <CustomButton buttonHandler={() => navigation.navigate('resetPasswordCode')} text={"Continue"} />
+            </View>
         </View>
-
-        <View style={styles.reset}>
-         <Text style={styles.resetText}>Enter your email address to request a password reset.</Text> 
-        </View>
-
-
-        <View>
-           <Text>Forget Password</Text>
-           <TextInput placeholder='Enter Email' />
-        </View>
-
-        <View style={styles.alignCenter}>
-          <CustomButton  text="Create an account" />
-        </View>
-    </View>
-  )
+    )
 }
 
+export default ForgetPassword
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#F5F5F8",
-    justifyContent: "space-between",
-    paddingVertical: 70,
-    paddingHorizontal: 20,
-    flexDirection: "column"
-  },
-  imgSrc: {
-    width: 125,
-    height: 45,
-  },
-  passwordText:{
-    marginTop: 60,
-    fontSize: 35,
-    fontWeight: 600,
-    color: "#4A4A4A",
-    fontFamily: "Poppins_600SemiBold"
-  },
-  reset: {
-    width: width - 110,
-    marginLeft: 40,
-    top: -50
-  },
-  resetText: {
-    textAlign: 'center',
-    fontSize: 14,
-    fontFamily: "Poppins_500Medium",
-  }
+    rowFlex: {
+        flexDirection: 'row'
+    },
+    textInputLabel: {
+        fontSize: 13,
+        marginBottom: 10,
+        marginLeft: 10
+    },
+    textInput: {
+        backgroundColor: '#fff',
+        borderColor: '#DFE2E5',
+        borderWidth: 1,
+        height: 45,
+        paddingLeft: 15,
+        borderRadius: 15
+    },
+    largeText: {
+        fontSize: 30,
+        fontWeight: '600'
+    },
+    title: {
+        fontWeight: '700',
+        fontSize: 22,
+        paddingVertical: 10
+    },
+    text: {
+        fontSize: 14
+    },
+    container: {
+        height,
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        paddingVertical: 20,
+        paddingHorizontal: 20
+    },
+    imgStyle: {
+        height: 100,
+        width: 150
+    },
+    alignCenter: {
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    googleBtn: {
+        height: 45,
+        width: 200,
+        borderRadius: 20,
+        borderColor: '#fff',
+        backgroundColor: '#fff',
+        borderWidth: 1
+    },
+    button: {
+        height: 45,
+        width: 300,
+        borderRadius: 20,
+        borderColor: '#2CBC35',
+        backgroundColor: '#2CBC35',
+        borderWidth: 1
+    }
 })
-
-export default ForgetPassword

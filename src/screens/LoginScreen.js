@@ -129,7 +129,6 @@ const styles = StyleSheet.create({
         width: width - 150,
         height: 45,
         marginBottom: 40
-
     },
     googleBtn: {
         width: 24,
