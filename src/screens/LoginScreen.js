@@ -38,7 +38,7 @@ const LoginScreen = () => {
             <View>
                 <Image resizeMode="contain" source={logo} style={styles.imgSrc} />
                 {/* <Image resizeMode="contain" source={food} style={styles.imgSrc} /> */}
-                <Text style={styles.welcomeText}>{`Welcome \n back`}</Text>
+                <Text style={styles.welcomeText}>{`Welcome \nback`}</Text>
             </View>
 
 

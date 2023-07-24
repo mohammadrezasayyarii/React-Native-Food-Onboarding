@@ -59,7 +59,7 @@ const SignupScreen = () => {
     <View>
        <Image resizeMode="contain" style={styles.imgStyle} source={food} />
        {/* <Image resizeMode="contain" style={styles.imgStyle} source={logo} /> */}
-       <Text style={[styles.largeText]}>{'Sign up \n now'}</Text>
+       <Text style={[styles.largeText]}>{'Sign up \nnow'}</Text>
     </View>
 
 

@@ -1,20 +1,41 @@
-import { View, Text, SafeAreaView, StyleSheet, Image } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, Image, Dimensions } from 'react-native'
 import React from 'react'
 import logo from '../../assets/images/logo.png'
 import { TextInput } from 'react-native'
 import CustomButton from '../components/CustomButton'
+import {
+  useFonts,
+  Poppins_100Thin,
+  Poppins_400Regular,
+  Poppins_500Medium,
+  Poppins_600SemiBold,
+  Poppins_700Bold,
+} from '@expo-google-fonts/poppins'
 
+const { width, height } = Dimensions.get('screen')
 
 const ForgetPassword = () => {
+  let [fontsLoaded] = useFonts({
+    Poppins_100Thin,
+    Poppins_400Regular,
+    Poppins_500Medium,
+    Poppins_600SemiBold,
+    Poppins_700Bold,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <View style={styles.container}>
         <View>
           <Image source={logo} style={styles.imgSrc} />
-          <Text style={styles.welcomeText}>{`Forget \n password ?`}</Text>
+          <Text style={styles.passwordText}>{`Forget \npassword ?`}</Text>
         </View>
 
-        <View>
-         <Text>Enter your email address to request a password reset.</Text> 
+        <View style={styles.reset}>
+         <Text style={styles.resetText}>Enter your email address to request a password reset.</Text> 
         </View>
 
 
@@ -26,8 +47,6 @@ const ForgetPassword = () => {
         <View style={styles.alignCenter}>
           <CustomButton  text="Create an account" />
         </View>
-
-
     </View>
   )
 }
@@ -46,9 +65,23 @@ const styles = StyleSheet.create({
     width: 125,
     height: 45,
   },
-  welcomeText:{
-   
+  passwordText:{
+    marginTop: 60,
+    fontSize: 35,
+    fontWeight: 600,
+    color: "#4A4A4A",
+    fontFamily: "Poppins_600SemiBold"
   },
+  reset: {
+    width: width - 110,
+    marginLeft: 40,
+    top: -50
+  },
+  resetText: {
+    textAlign: 'center',
+    fontSize: 14,
+    fontFamily: "Poppins_500Medium",
+  }
 })
 
 export default ForgetPassword
