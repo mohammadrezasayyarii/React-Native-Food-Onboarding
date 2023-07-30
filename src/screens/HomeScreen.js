@@ -9,6 +9,7 @@ import {
   Poppins_600SemiBold,
   Poppins_700Bold,
 } from '@expo-google-fonts/poppins'
+import CategoriesCard from '../components/CategoriesCard';
 
 const HomeScreen = () => {
 
@@ -37,6 +38,11 @@ const HomeScreen = () => {
         </View>
         
         <Text style={styles.choose}>Choose your delicious food</Text>
+        
+        
+          <CategoriesCard />
+        
+
 
       </View>
     </SafeAreaView>

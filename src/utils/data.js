@@ -17,3 +17,17 @@ export const data = [
 ]
 
 
+export const Icons = [
+    {
+        image: require("../../assets/images/home.png"),
+    },
+    {
+        image: require("../../assets/images/like.png"),
+    },
+    {
+        image: require("../../assets/images/filter.png"),
+    },
+    {
+        image: require("../../assets/images/shopping-cart.png"),
+    },
+]
