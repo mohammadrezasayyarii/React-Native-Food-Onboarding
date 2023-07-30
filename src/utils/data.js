@@ -15,3 +15,5 @@ export const data = [
         content: "We made food ordering fast , simple and free, no matter if you order online or by cash"
     },
 ]
+
+

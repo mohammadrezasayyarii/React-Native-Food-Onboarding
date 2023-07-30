@@ -36,17 +36,27 @@ const ResetPassword = () => {
         <View style={styles.alignCenter}>
           <View>
             <Text style={styles.resetText}>A reset code has been sent to your email</Text>
+          </View>
 
           <View>
             <Text style={styles.code}>Enter code</Text>
-            <View style={{ flexDirection: 'row', }}>
-                <TextInput placeholder="-" style={styles.inputBox}/>
-                <TextInput placeholder="-" style={styles.inputBox}/>
-                <TextInput placeholder="-" style={styles.inputBox}/>
-                <TextInput placeholder="-" style={styles.inputBox}/>
+          </View>
+
+          <View style={styles.otpContainer}>
+            <View style={styles.otpBox}>
+               <TextInput style={styles.otpText} keyboardType='number-pad' maxLength={1} placeholder='-'/>
+            </View>
+            <View style={styles.otpBox}>
+               <TextInput style={styles.otpText} keyboardType='number-pad' maxLength={1} placeholder='-' />
+            </View>
+            <View style={styles.otpBox}>
+               <TextInput style={styles.otpText} keyboardType='number-pad' maxLength={1} placeholder='-' />
+            </View>
+            <View style={styles.otpBox}>
+               <TextInput style={styles.otpText} keyboardType='number-pad' maxLength={1} placeholder='-' />
             </View>
           </View>
-          </View>
+          
         </View>
       </KeyboardAvoidingView>
     </View>
@@ -89,12 +99,42 @@ const styles = StyleSheet.create({
     color: "#3D3D3D"
   },
   inputBox: {
-    backgroundColor: "#fff"
+    // backgroundColor: "#fff"
+  },
+  otpContainer: {
+    marginHorizontal: 20,
+    marginVertical: 20,
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    flexDirection: "row",
+    gap: 15
+    // backgroundColor: "red"
+  },
+  otpBox: {
+    borderRadius: 10,
+    borderColor: "#fff",
+    borderWidth: 1,
+    shadowOffset: {
+      width: 1,
+      height: 2,
+  },
+  shadowOpacity: 0.50,
+  shadowRadius: 5,
+  elevation: 4,
+  },
+  otpText: {
+    fontSize: 25,
+    color: "black",
+    padding: 0,
+    textAlign: "center",
+    paddingHorizontal: 18,
+    paddingVertical: 10,
   }
-
-})
+}) 
 
 export default ResetPassword
+
+
 
 
 
