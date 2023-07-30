@@ -28,8 +28,8 @@ const HomeScreen = () => {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <View style={styles.vector}>
-          <Feather name="align-left" size={24} color="black" />
-          <EvilIcons name="search" size={24} color="#000000" />
+          <Feather name="align-left" size={35} color="black" />
+          <EvilIcons name="search" size={35} color="black" />
         </View>
 
         <View style={styles.work}>
@@ -39,8 +39,9 @@ const HomeScreen = () => {
         
         <Text style={styles.choose}>Choose your delicious food</Text>
         
-        
+        <View>
           <CategoriesCard />
+        </View>
         
 
 
