@@ -10,6 +10,12 @@ import {
   Poppins_700Bold,
 } from '@expo-google-fonts/poppins'
 import CategoriesCard from '../components/CategoriesCard';
+import { FlatList } from 'react-native';
+import FoodCard from '../components/FoodCard';
+import foods from '../utils/data';
+import { TouchableOpacity } from 'react-native';
+import CustomButton from '../components/CustomButton';
+
 
 const HomeScreen = () => {
 
@@ -42,9 +48,21 @@ const HomeScreen = () => {
         <View>
           <CategoriesCard />
         </View>
-        
 
-
+        {/* <CustomButton text="Get Started" style={{ postion: "absolute", butttom: -100}} /> */}
+      
+        <FlatList 
+          data={foods}
+          numColumns={2} 
+          showsVerticalScrollIndicator={false}
+          columnWrapperStyle={{ justifyContent: "space-between"}}
+          contentContainerStyle={{
+            marginTop: 10,
+            paddingBottom: 50,
+          }}
+          renderItem={({item}) => <FoodCard foodData={item} />}
+        />
+      
       </View>
     </SafeAreaView>
   )
@@ -55,8 +73,9 @@ export default HomeScreen
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 20,
+    paddingHorizontal: 25,
     // paddingVertical: 40,
+    // top: -60,
     backgroundColor: "#DFDFDF"
   },
   header: {
@@ -82,7 +101,20 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: "Poppins_400Regular",
     fontWeight: 600
-  }
+  },
+  button: {
+    backgroundColor: 'red', // Replace with your desired background color
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+    buttonText: {
+    color: '#ffffff', // Replace with your desired text color
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
   
 
 })

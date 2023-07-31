@@ -31,3 +31,58 @@ export const Icons = [
         image: require("../../assets/images/shopping-cart.png"),
     },
 ]
+
+
+const foods = [
+    {
+      id: 1,
+      name: 'Egg Salad',
+      price: '$10.00',
+      img: require('../../assets/images/eggsalad.png'),
+    },
+    {
+      id: 2,
+      name: 'Rice',
+      price: '$14.00',
+      img: require('../../assets/images/rice.png'),
+    },
+    {
+      id: 3,
+      name: 'Ravenea Plant',
+      price: '25.99',
+      img: require('../../assets/images/friedchicken.png'),
+    },
+    {
+      id: 4,
+      name: 'Potted Plant',
+      price: '25.99',
+      img: require('../../assets/images/shawama.png'),
+    },
+    {
+      id: 5,
+      name: 'Potted Plant',
+      price: '25.99',
+      img: require('../../assets/images/shawama.png'),
+    },
+    {
+      id: 6,
+      name: 'Potted Plant',
+      price: '25.99',
+      img: require('../../assets/images/shawama.png'),
+    },
+    {
+      id: 7,
+      name: 'Potted Plant',
+      price: '25.99',
+      img: require('../../assets/images/shawama.png'),
+    },
+    {
+      id: 8,
+      name: 'Potted Plant',
+      price: '25.99',
+      img: require('../../assets/images/shawama.png'),
+    }
+  ];
+  
+  export default foods;
+  

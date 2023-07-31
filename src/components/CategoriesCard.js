@@ -11,19 +11,17 @@ const CategoriesCard = () => {
     const [catergoryIndex, setCategoryIndex] = useState(0);
     
     
-    
   return (
     <View style={styles.container}>
     {Icons.map((item, index) => (
-    <View
-        style={[styles.imageContainer, catergoryIndex === index && styles.categoryBorderSelected, ]}
-        key={index}
-        activeOpacity={0.8}
-        onPress={() => setCategoryIndex(index)}>
+        <TouchableOpacity key={index} onPress={() => setCategoryIndex(index)}>
+            <View
+                style={[styles.imageContainer, catergoryIndex === index && styles.categoryBorderSelected, ]}
+                activeOpacity={0.8}>
 
-         <Image source={item.image} style={[styles.image, catergoryIndex === index && styles.categoryImageSelected]} />
-        
-      </View>
+                <Image source={item.image} style={styles.image} />
+            </View>
+        </TouchableOpacity> 
     ))}
   </View>
   )
