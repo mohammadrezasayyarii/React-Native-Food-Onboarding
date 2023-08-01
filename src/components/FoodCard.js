@@ -13,10 +13,7 @@ const FoodCard = ({ foodData }) => {
         </View>
 
         <Image source={foodData.img} style={{width: 120, height: 120, marginTop: 10}} />
-
-
-
-
+        
         <View style={{flexDirection: 'row', justifyContent: "space-between", alignItems: "center"}}>
           <View style={{marginTop: 3}}>
             <Text>{foodData.name}</Text>
