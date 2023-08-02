@@ -47,31 +47,32 @@ const ProductDetails = () => {
               <FontAwesome5 name="dot-circle" size={15} color="#2CBC35" style={{flex: 1}} />
               <Text>Add</Text>
             </View>
-            <Text style={{ fontWeight: 700, color: "#09B44D", fontSize: 20}}>$100</Text>
+            <Text style={{ fontWeight: 700, color: "#09B44D", fontSize: 20}}>$100.00</Text>
           </View>
 
-          <View>
-            <Text>Recipe</Text>
-            <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi elementc more..........</Text>
+          <View style={{marginTop: 30}}>
+            <Text style={styles.recipi}>Recipe</Text>
+            <Text style={{ marginVertical: 15 }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi element <Text style={styles.highlight}>more..........</Text></Text>
 
             <View>
-              <View style={{ flexDirection: "row", gap: 30, marginBottom: 15}}>
-                <View style={{  borderWidth: 1, width: 60,  height: 40, justifyContent: 'center', alignItems: "center" }}>
-                  <Foundation name="heart" size={24} color="black" />
+              <View style={{ flexDirection: "row", gap: 20, marginVertical: 15, alignItems: "center", alignContent: "center",}}>
+                <View style={styles.heartBorder}>
+                  <Foundation name="heart" size={24} color="#9F9F9F" />
                 </View>
-                <View>
-                    <Text>ProductDetails</Text>
-                    <Text>Lorem ipsum dolor sit amr</Text>
-                </View>
+                  
+                  <View>
+                    <Text style={styles.heartText}>Location</Text>
+                    <Text style={styles.heartsubText}>Lorem ipsum dolor sit amr</Text>
+                  </View>
               </View>
 
-              <View style={{ flexDirection: "row", gap: 30}}>
-                <View style={{  borderWidth: 1, width: 60,  height: 40, justifyContent: 'center', alignItems: "center" }}>
-                  <Foundation name="heart" size={24} color="black" />
+              <View style={{ flexDirection: "row", gap: 20}}>
+                <View style={styles.heartBorder}>
+                  <Foundation name="heart" size={24} color="#9F9F9F" />
                 </View>
                 <View>
-                    <Text>ProductDetails</Text>
-                    <Text>Lorem ipsum dolor sit amr</Text>
+                    <Text style={styles.heartText}>Delivery Time</Text>
+                    <Text style={styles.heartsubText}>30 minutes</Text>
                 </View>
               </View>
             </View>
@@ -117,8 +118,35 @@ const styles = StyleSheet.create({
     color: "rgba(0, 0, 0, 0.50)",
     fontSize: 25,
     fontWeight: 700,
-    fontFamily: ""
+    fontFamily: "Poppins_500Medium"
+  },
+  recipi: {
+    fontFamily: "Poppins_500Medium",
+    fontWeight: 700,
+    fontSize: 20,
+    color: "rgba(0, 0, 0, 0.50)",
+  },
+  highlight: {
+    color: "#2CBC35"
+  },
+  heartBorder: {
+    borderColor: "#9F9F9F", 
+    borderRadius: 10, 
+    borderWidth: 1, 
+    width: 45,  
+    height: 40, 
+    justifyContent: 'center', 
+    alignItems: "center"
+  },
+  heartText:{
+    fontSize: 20, 
+    fontWeight: 700, 
+    color: "rgba(0, 0, 0, 0.50)",
+  },
+  heartsubText: {
+    color: "rgba(74, 74, 74, 0.38)",
+    fontSize: 15,
+    fontWeight: 600,
   }
-  
-    
+
 })
