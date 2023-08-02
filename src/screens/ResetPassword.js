@@ -98,34 +98,28 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins_400Regular",
     color: "#3D3D3D"
   },
-  inputBox: {
-    // backgroundColor: "#fff"
-  },
   otpContainer: {
     marginHorizontal: 20,
     marginVertical: 20,
     justifyContent: "space-evenly",
     alignItems: "center",
     flexDirection: "row",
-    gap: 15
-    // backgroundColor: "red"
+    gap: 15,
+    backgroundColor: '#f0f0f0',
   },
   otpBox: {
     borderRadius: 10,
-    borderColor: "#fff",
+    borderColor: "white",
     borderWidth: 1,
-    shadowOffset: {
-      width: 1,
-      height: 2,
-  },
-  shadowOpacity: 0.50,
-  shadowRadius: 5,
-  elevation: 4,
+    backgroundColor: '#ffffff',
+    boxShadow: "black",
+    shadowOpacity: 0.50,
+    shadowRadius: 5,
+    elevation: 4,
   },
   otpText: {
     fontSize: 25,
     color: "black",
-    padding: 0,
     textAlign: "center",
     paddingHorizontal: 18,
     paddingVertical: 10,
