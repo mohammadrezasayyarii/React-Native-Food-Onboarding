@@ -24,6 +24,7 @@ const ResetPassword = () => {
   const fourthInput = useRef();
   const [otp, setOtp] = useState({ 1: "", 2: "", 3: "", 4:""})
 
+  
   let [fontsLoaded] = useFonts({
     Poppins_100Thin,
     Poppins_400Regular,

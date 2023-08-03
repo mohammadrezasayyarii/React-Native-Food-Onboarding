@@ -76,14 +76,8 @@ const ProductDetails = () => {
                 </View>
               </View>
             </View>
-
-
           </View>
-
-          
-          
         </View>
-
       </View>
     </SafeAreaView>
   )

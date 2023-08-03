@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, Dimensions, KeyboardAvoidingView, SafeAreaView } from 'react-native'
+import { View, Text, StyleSheet, Image, Dimensions, KeyboardAvoidingView, SafeAreaView, Pressable, Alert } from 'react-native'
 import React, { useState } from 'react'
 import food from '../../assets/images/good.png'
 // import logo from '../../assets/images/logo.png'
@@ -13,30 +13,59 @@ import {
   } from '@expo-google-fonts/poppins'
 import CustomButton from '../components/CustomButton'
 import { TouchableOpacity } from 'react-native'
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
-  const { height, width } = Dimensions.get('screen')
+
+const { height, width } = Dimensions.get('screen')
 
 const SignupScreen = () => { 
-    const [formData, setFormData] = useState({
-        email: "",
-        password: "",
-        confirm_password: ""
-      })
-     
+     const [email, setEmail] = useState('')
+     const [password, setPassword] = useState('')
+     const [confirm_password, setConfirm_password] = useState('')
 
-      const { email, password, confirm_password } = formData
-    
 
-      const handleChange = (e) => {
-        const {name, value} = e.target
 
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value
-        }))
+     const user = {
+        email,
+        password,
+        confirm_password
+     }
 
-        // setFormData({...prevData, [name]: value}) 
-      }
+
+    //  console.log(user)
+
+
+
+    const register = async() => {
+        if(email === "" || password === "" || phone === ""){
+            Alert.alert(
+              "Invalid Details",
+              "Please fill all the details",
+              [
+                {
+                  text: "Cancel",
+                  onPress: () => console.log("Cancel Pressed"),
+                  style: "cancel"
+                },
+                { text: "OK", onPress: () => console.log("OK Pressed") }
+              ],
+              { cancelable: false }
+            );
+          }
+
+    try {
+        const auth = getAuth();
+        const userCredential = createUserWithEmailAndPassword(auth, email, password)
+
+        const user = userCredential.user;
+    } catch (error) {
+        console.log(error)
+    }
+
+    }
+
+
+      
    
 
       let [fontsLoaded] = useFonts({
@@ -52,7 +81,7 @@ const SignupScreen = () => {
       }
 
 
-
+//   console.log(process.env.REACT_APP_FIREBASE_API_KEY)
     
   return (
     <SafeAreaView style={styles.container}>
@@ -70,48 +99,58 @@ const SignupScreen = () => {
                 <Text style={styles.inputLabel}>Email Address</Text>
                 <TextInput
                     keyboardType="email-address" 
-                    name="email"
-                    value={email}
                     placeholder="Email"
-                    onChangeText={handleChange}
+                    defaultValue={email}
+                    onChangeText={(text) => setEmail(text)}
                     style={styles.textInput} 
                 />
             </View>
             <View style={{ marginVertical: 10 }}>
                 <Text style={styles.inputLabel}>Password</Text>
                 <TextInput
-                name="password"
-                value={password}
-                placeholder="Password"
-                onChangeText={handleChange}
-                style={styles.textInput} 
+                    placeholder="Password"
+                    defaultValue={password}
+                    onChangeText={newText => setPassword(newText)}
+                    style={styles.textInput} 
                 />
             </View>
             <View style={{ marginVertical: 10 }}>
                 <Text style={styles.inputLabel}>Confirm Password</Text>
                 <TextInput
-                name="confirm_password"
-                value={confirm_password}
-                placeholder="Confirm Password"
-                onChangeText={handleChange}
-                style={styles.textInput} 
+                    placeholder="Confirm Password"
+                    defaultValue={confirm_password}
+                    onChangeText={newText => setConfirm_password(newText)}
+                    style={styles.textInput} 
                 />
             </View>
         </View>
-    </View>
 
+        <TouchableOpacity
+          onPress={register}
+            style={{
+              width: 300,
+              backgroundColor: "#09B44D",
+              padding: 10,
+              borderRadius: 25,
+              marginTop: 200,
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+          >
+            <Text style={{ fontSize: 18, textAlign: "center", color: "white" }}>
+            Create an account
+            </Text>
+          </TouchableOpacity>
 
-    <View style={[styles.alignCenter, {marginTop: 150}]}>
-      <CustomButton  text="Create an account" />
-    </View>
+       
 
+        <View style={[styles.alignCenter, { flexDirection: "row", gap:5, marginVertical: 10 }]}>
+            <Text>Already Have an Account?</Text>
 
-    <View style={[styles.alignCenter, { flexDirection: "row", gap:5, marginVertical: 10 }]}>
-        <Text>Already Have an Account?</Text>
-
-        <TouchableOpacity>
-            <Text style={{ color: "#2CBC35"}}>Sign In</Text>
-        </TouchableOpacity>
+            <TouchableOpacity>
+                <Text style={{ color: "#2CBC35"}}>Sign In</Text>
+            </TouchableOpacity>
+       </View>
     </View>
     </KeyboardAvoidingView>
  </SafeAreaView>
@@ -138,7 +177,7 @@ const styles = StyleSheet.create({
         // height: 45
     },
     largeText: {
-        marginTop: 10,
+        marginTop: 5,
         marginBottom: 25,
         fontSize: 30,
         fontWeight: 'bold',
@@ -160,7 +199,7 @@ const styles = StyleSheet.create({
     },
     inputLabel: {
         marginLeft: 5,
-        // marginVertical: 5,
+        marginVertical: 1,
         color: "#3D3D3D"
     }
 })

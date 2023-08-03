@@ -2,9 +2,9 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 
 
-const CustomButton = ({ buttonHandler, text }) => {
+const CustomButton = ({ text }) => {
   return (
-    <TouchableOpacity onPress={() => buttonHandler()}>
+    <TouchableOpacity>
       <View style={styles.container}>
         <Text style={styles.text}>{text}</Text>
       </View>
